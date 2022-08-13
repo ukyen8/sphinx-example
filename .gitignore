@@ -86,3 +86,6 @@ dmypy.json
 # PyCharm
 .idea
 key.txt
+
+# Allow Sphinx build folder
+!docs/build
