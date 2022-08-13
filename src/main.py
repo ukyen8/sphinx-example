@@ -13,6 +13,9 @@ class SimpleClass:
         - Bullet list 1
         - Bullet list 2
 
+        1. This is a numbered list.
+        2. It has two items too.
+
         Sample code block::
 
             >>> 1 + 1

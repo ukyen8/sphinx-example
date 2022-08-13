@@ -26,3 +26,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Generate documentation
         run: ./docs_generator.sh ${{ matrix.module_path }}
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          file_pattern: docs/build
+          commit_message: "docs: generation of documentation"
