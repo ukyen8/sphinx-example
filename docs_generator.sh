@@ -11,4 +11,4 @@ sphinx-apidoc -f -o $SOURCE_DIR $MODULE_PATH
 sed "s/Contents:/Contents:\n\n   $MODULE_PATH/g" $SOURCE_DIR/index.tmpl.rst > $SOURCE_DIR/index.rst
 
 # Generate html documentation from source files
-sphinx-build -b html $SOURCE_DIR $BUILD_DIR
+sphinx-build -b html $SOURCE_DIR $BUILD_DIR/$MODULE_PATH
