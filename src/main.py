@@ -16,6 +16,9 @@ class SimpleClass:
         1. This is a numbered list.
         2. It has two items too.
 
+        #. This is also a numbered list.
+        #. It has two items too.
+
         Sample code block::
 
             >>> 1 + 1
