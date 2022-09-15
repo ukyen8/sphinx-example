@@ -8,7 +8,7 @@ build:
   tools:
     python: "3.10"
   jobs:
-    pre_create_environment:
+    post_install:
       - ./docs_generator.sh src
 
 python:
