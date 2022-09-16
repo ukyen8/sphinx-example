@@ -49,7 +49,6 @@ def module_level_function(val1: int, val2) -> int:
     2      3      5
     3      2      5
     4      1      5
-    4      1      5
     =====  =====  =======
 
     :param val1: first value.
