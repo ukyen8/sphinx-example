@@ -7,12 +7,12 @@ on:
     paths:
       - '**.py'
 
+env:
+  MODULE_PATHS: src
+
 jobs:
   doc-gen:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        module_path: ['src']
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -25,21 +25,14 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Generate documentation
-        run: ./docs_generator.sh ${{ matrix.module_path }}
+        run: ./docs_generator.sh ${{ env.MODULE_PATHS }}
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           file_pattern: docs/build
           commit_message: "docs: generation of documentation"
-      - name: Publish to GitHub wiki
-        uses: Andrew-Chen-Wang/github-wiki-action@v3
-        env:
-          WIKI_DIR: docs/build/${{ matrix.module_path }}
-          GH_TOKEN: ${{ secrets.MY_PAT }}
-          GH_MAIL: ${{ secrets.EMAIL }}
-          GH_NAME: ${{ github.repository_owner }}
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.MY_PAT }}
-          publish_dir: docs/build/${{ matrix.module_path }}
+          publish_dir: docs/build/${{ env.MODULE_PATHS }}
