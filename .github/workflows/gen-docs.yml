@@ -37,7 +37,7 @@ jobs:
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.MY_PAT }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/build
       - name: Gcloud Auth
         uses: 'google-github-actions/auth@v0'
